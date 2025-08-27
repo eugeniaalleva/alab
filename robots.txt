@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://eugeniaalleva.github.io/alab/al-folio/sitemap.xml
+Sitemap: https://eugeniaalleva.github.io/alab/sitemap.xml
