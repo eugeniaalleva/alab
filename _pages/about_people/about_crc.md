@@ -1,0 +1,4 @@
+We’re looking for a **Research Coordinator who will also act as a project manager** — someone who can keep our studies running smoothly, coordinate across clinical and technical teams, and help us deliver on ambitious milestones. This is not a back-office role: you’ll be part of the core team building a new lab, shaping processes, and working directly with both clinicians and AI scientists.
+If you’re **highly organized, thrive in interdisciplinary environments, and want to contribute to a mission-driven program** at the intersection of women’s health and AI, we’d love to hear from you.
+
+**CURRENTLY REVIEWING APPLICATIONS**

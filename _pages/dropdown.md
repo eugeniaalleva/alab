@@ -1,13 +1,19 @@
 ---
 layout: page
-title: submenus
+title: The Team
 nav: true
-nav_order: 8
+nav_order: 2
 dropdown: true
 children:
-  - title: bookshelf
-    permalink: /books/
+  - title: Core Team
+    permalink: /team/
   - title: divider
-  - title: blog
-    permalink: /blog/
+  - title: Visiting
+    permalink: /visiting/
+  - title: divider
+  - title: Collaborators
+    permalink: /collaborators/
+  - title: divider
+  - title: Alumni
+    permalink: /alumni/
 ---

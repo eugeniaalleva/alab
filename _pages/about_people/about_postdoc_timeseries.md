@@ -1,0 +1,5 @@
+We’re seeking a **postdoctoral fellow with expertise in time-series modeling, wearable data, or mobile health**. You’ll develop methods that make sense of high-frequency, messy, real-world signals, and work with clinicians to ensure these models translate into meaningful insights for patients.
+This is a unique chance to join a lab at its start. You’ll work in a collaborative environment, with access to Sinai Million (genome-linked EHR biobank), AIRMS data infrastructure, Minerva HPC, and eHive, our platform for wearable and digital health studies. International collaboration with the Hasso Plattner Institute in Germany expands the horizon even further.
+If you’re **passionate about applying ML to women’s health** and want your work to move beyond methods into practice, this position is for you.
+
+**APPLICATIONS OPENING SOON**
