@@ -1,0 +1,5 @@
+We’re looking for a **Machine Learning Scientist I** to join our new lab at Mount Sinai. Backed by the Wellcome Leap Missed Vital Sign program, our mission is to close critical gaps in women’s health by bringing cutting-edge AI to one of the most neglected challenges: heavy menstrual bleeding and iron deficiency.
+You’ll be the **technical backbone of the lab: building, training, and optimizing machine learning models across multimodal data streams** (EHR, imaging, wearables, genomics). You’ll run large-scale experiments on the Minerva HPC cluster, support distributed learning (Accelerate, PyTorch Lightning), and contribute to pipelines that enable true translation of AI methods into the clinic. Experience with Azure cloud is a plus.
+This role is ideal for an **applied researcher or engineer who thrives on HPC-scale challenges and wants their work to directly shape women’s health**. You’ll collaborate with postdocs, clinicians, and international partners, and help define the technical culture of a new, impact-driven group.
+
+**APPLICATIONS OPENING SOON**

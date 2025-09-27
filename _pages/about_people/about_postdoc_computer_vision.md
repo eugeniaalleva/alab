@@ -1,0 +1,5 @@
+We’re looking for a **postdoctoral fellow with expertise in computer vision and multimodal AI** to work at the intersection of radiology, pathology, genomics, and electronic health records. This is an opportunity to help **build translational tools with real clinical impact**, side by side with clinicians and AI scientists.
+You’ll join as a founding member of a new group that values openness, collaboration, and impact. With access to Mount Sinai’s genome-linked EHR biobank (Sinai Million), AIRMS infrastructure, Minerva HPC, and eHive digital study platform, you’ll have resources few labs can offer. Our growing partnership with the Hasso Plattner Institute in Germany creates additional opportunities for international collaboration.
+If you’re a creative researcher ready to push the boundaries of medical AI and bring innovation directly into women’s health, we’d love to hear from you.
+
+**APPLICATIONS OPENING SOON**
