@@ -1,2 +1,3 @@
 We’re seeking a **postdoctoral fellow with expertise in electronic health records and machine learning** as part of the DORIAN GRAY project. The role focuses on predictive modeling for cardiovascular disease and mild cognitive impairment, applying large language models to extract cognitive measures from clinical notes and integrating EHR and biobank data to build multimodal risk models. Ideal candidates will have a PhD in a relevant field, experience in biomedical NLP and healthcare AI, strong coding skills in Python, and familiarity with large-scale clinical datasets. This is a unique opportunity to collaborate across clinical and data science teams while advancing methods that bridge genomics, informatics, and patient care.
-**APPLY [](https://careers.mountsinai.org/jobs/3031023)**
+
+**APPLY [HERE](https://careers.mountsinai.org/jobs/3031023)**

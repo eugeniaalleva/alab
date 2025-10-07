@@ -37,7 +37,14 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/alab/alumni/";
               },
-            },{id: "nav-publications",
+            },{id: "nav-projects",
+          title: "Projects",
+          description: "Ongoing and past projects",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/alab/projects/";
+          },
+        },{id: "nav-publications",
           title: "Publications",
           description: "",
           section: "Navigation",
@@ -398,16 +405,6 @@ ninja.data = [{
           description: "",
           section: "News",handler: () => {
               window.location.href = "/alab/news/hiring_announcement/";
-            },},{id: "projects-project-1",
-          title: 'project 1',
-          description: "with background image",
-          section: "Projects",handler: () => {
-              window.location.href = "/alab/projects/1_project/";
-            },},{id: "projects-project-2",
-          title: 'project 2',
-          description: "a project with a background image and giscus comments",
-          section: "Projects",handler: () => {
-              window.location.href = "/alab/projects/2_project/";
             },},{id: "projects-project-3-with-very-long-name",
           title: 'project 3 with very long name',
           description: "a project that redirects to another website",
@@ -443,6 +440,16 @@ ninja.data = [{
           description: "another project with an image 🎉",
           section: "Projects",handler: () => {
               window.location.href = "/alab/projects/9_project/";
+            },},{id: "projects-cramp-study",
+          title: 'CRAMP Study',
+          description: "Characterizing Resilience and Menstrual Pain",
+          section: "Projects",handler: () => {
+              window.location.href = "/alab/projects/cramp/";
+            },},{id: "projects-impact-hmb",
+          title: 'IMPACT-HMB',
+          description: "Integrated Models for Patients and Clinicians Tackling Heavy Menstrual Bleeding",
+          section: "Projects",handler: () => {
+              window.location.href = "/alab/projects/impact_hmb/";
             },},{
         id: 'social-email',
         title: 'email',
