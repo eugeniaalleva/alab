@@ -55,7 +55,7 @@ profiles:
       <p>NLP/EHR</p>
   - align: right
     image: future_candidate.jpg
-    content: about_people/about_nlp_scientist.md
+    content: about_people/about_crc.md
     image_circular: false # crops the image to make it circular
     more_info: >
       <p>We are hiring!</p>
