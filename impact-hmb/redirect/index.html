@@ -1,104 +1,179 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>IMPACT-HMB — Redirecting…</title>
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IMPACT-HMB — Confirm Response</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 48px 40px;
+      max-width: 540px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+    }
+    .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      color: white;
+      font-size: 36px;
+      margin-bottom: 24px;
+    }
+    .icon-accept { background: #4CAF50; }
+    .icon-deny   { background: #f44336; }
+    .icon-error  { background: #888; }
+    h1 { font-size: 24px; margin-bottom: 16px; }
+    h1.accept { color: #4CAF50; }
+    h1.deny   { color: #f44336; }
+    h1.error  { color: #888; }
+    p  { color: #555; line-height: 1.65; font-size: 15px; }
+    .btn {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 14px 36px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-accept { background: #4CAF50; }
+    .btn-accept:hover { background: #43a047; }
+    .btn-deny { background: #f44336; }
+    .btn-deny:hover { background: #e53935; }
+    .note {
+      margin-top: 16px;
+      font-size: 13px;
+      color: #888;
+    }
+    .footer {
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+      font-size: 12px;
+      color: #999;
+    }
+    .footer a { color: #4a86e8; text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="card" id="card">
+    <!-- JS populates this -->
+  </div>
+
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var target = params.get("target");
+      var token  = params.get("token");
+      var action = params.get("action");
+      var type   = params.get("type") || "engagement";
+      var card   = document.getElementById("card");
+
+      var STUDY_NAME  = "IMPACT-HMB";
+      var STUDY_EMAIL = "impact-hmb-study@mssm.edu";
+      var INSTITUTION = "Icahn School of Medicine at Mount Sinai";
+
+      // ===== INVALID LINK =====
+      if (!target || !token || !action) {
+        card.innerHTML =
+          '<div class="icon icon-error">!</div>' +
+          '<h1 class="error">Invalid link</h1>' +
+          '<p>This link appears to be broken. Please use the link from your email.</p>';
+        return;
       }
-      body {
-        font-family: Arial, sans-serif;
-        background: #f0f2f5;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        padding: 24px;
+
+      var isAccept = action === "accept";
+
+      // ===== STEP 1: CONFIRMATION SCREEN =====
+      function showConfirmation() {
+        if (isAccept) {
+          card.innerHTML =
+            '<div class="icon icon-accept">?</div>' +
+            '<h1 class="accept">Approve patient contact?</h1>' +
+            '<p>You are about to <strong>approve</strong> contact with your eligible patients for the ' +
+            '<strong>' + STUDY_NAME + '</strong> study at ' + INSTITUTION + '.</p>' +
+            '<button class="btn btn-accept" id="confirm-btn">Confirm Approval</button>' +
+            '<p class="note">Only your first response is recorded. ' +
+            'If you would like to change your response later, please reply directly to the recruitment email.</p>' +
+            '<div class="footer">' +
+            '<strong>' + STUDY_NAME + '</strong> Study &nbsp;&middot;&nbsp; ' + INSTITUTION + '<br>' +
+            'Questions? <a href="mailto:' + STUDY_EMAIL + '">' + STUDY_EMAIL + '</a>' +
+            '</div>';
+        } else {
+          card.innerHTML =
+            '<div class="icon icon-deny">?</div>' +
+            '<h1 class="deny">Decline patient contact?</h1>' +
+            '<p>You are about to <strong>decline</strong> participation in the ' + STUDY_NAME + ' study recruitment. ' +
+            'No further emails will be sent to your patients regarding this study.</p>' +
+            '<button class="btn btn-deny" id="confirm-btn">Confirm Decline</button>' +
+            '<p class="note">Only your first response is recorded. ' +
+            'If you would like to change your response later, please reply directly to the recruitment email.</p>' +
+            '<div class="footer">' +
+            '<strong>' + STUDY_NAME + '</strong> Study &nbsp;&middot;&nbsp; ' + INSTITUTION + '<br>' +
+            'Questions? <a href="mailto:' + STUDY_EMAIL + '">' + STUDY_EMAIL + '</a>' +
+            '</div>';
+        }
+
+        document.getElementById("confirm-btn").addEventListener("click", function () {
+          recordAndShowThankYou();
+        });
       }
-      .card {
-        background: #fff;
-        border-radius: 10px;
-        padding: 48px 40px;
-        max-width: 480px;
-        width: 100%;
-        text-align: center;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      }
-      .spinner {
-        width: 40px;
-        height: 40px;
-        border: 4px solid #eee;
-        border-top-color: #c50076;
-        border-radius: 50%;
-        animation: spin 0.8s linear infinite;
-        margin: 0 auto 24px;
-      }
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
+
+      // ===== STEP 2: RECORD + THANK YOU =====
+      function recordAndShowThankYou() {
+        // Fire background request to Google Apps Script
+        var dest = target + "?token=" + encodeURIComponent(token)
+                 + "&action=" + encodeURIComponent(action)
+                 + "&type=" + encodeURIComponent(type);
+        var img = new Image();
+        img.src = dest;
+
+        // Show thank-you page
+        if (isAccept) {
+          card.innerHTML =
+            '<div class="icon icon-accept">&#10003;</div>' +
+            '<h1 class="accept">Thank you for your approval!</h1>' +
+            '<p>Your response has been recorded. ' +
+            'Eligible patients will receive a study invitation email shortly.</p>' +
+            '<div class="footer">' +
+            '<strong>' + STUDY_NAME + '</strong> Study &nbsp;&middot;&nbsp; ' + INSTITUTION + '<br>' +
+            'Questions? <a href="mailto:' + STUDY_EMAIL + '">' + STUDY_EMAIL + '</a>' +
+            '</div>';
+        } else {
+          card.innerHTML =
+            '<div class="icon icon-deny">&#10007;</div>' +
+            '<h1 class="deny">Response recorded</h1>' +
+            '<p>Your response has been recorded. ' +
+            'No further emails will be sent to your patients regarding this study. ' +
+            'Thank you for letting us know.</p>' +
+            '<div class="footer">' +
+            '<strong>' + STUDY_NAME + '</strong> Study &nbsp;&middot;&nbsp; ' + INSTITUTION + '<br>' +
+            'Questions? <a href="mailto:' + STUDY_EMAIL + '">' + STUDY_EMAIL + '</a>' +
+            '</div>';
         }
       }
-      h1 {
-        color: #333;
-        font-size: 20px;
-        margin-bottom: 12px;
-      }
-      p {
-        color: #666;
-        font-size: 15px;
-        line-height: 1.5;
-      }
-      a {
-        color: #c50076;
-      }
-      #fallback {
-        display: none;
-        margin-top: 20px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="card">
-      <div class="spinner"></div>
-      <h1>Recording your response…</h1>
-      <p>You will be redirected momentarily.</p>
-      <div id="fallback">
-        <p>If you are not redirected automatically, <a id="fallback-link" href="#">click here</a>.</p>
-      </div>
-    </div>
 
-    <script>
-      (function () {
-        var params = new URLSearchParams(window.location.search);
-        var target = params.get("target");
-        var token = params.get("token");
-        var action = params.get("action");
-        var type = params.get("type") || "engagement";
-
-        if (!target || !token || !action) {
-          document.querySelector("h1").textContent = "Invalid link";
-          document.querySelector("p").textContent = "This link appears to be broken. Please use the link from your email.";
-          document.querySelector(".spinner").style.display = "none";
-          return;
-        }
-
-        var dest = target + "?token=" + encodeURIComponent(token) + "&action=" + encodeURIComponent(action) + "&type=" + encodeURIComponent(type);
-
-        // Show fallback link after 3 seconds in case redirect is blocked
-        var fb = document.getElementById("fallback");
-        var fbLink = document.getElementById("fallback-link");
-        fbLink.href = dest;
-        setTimeout(function () {
-          fb.style.display = "block";
-        }, 3000);
-
-        // Redirect
-        window.location.href = dest;
-      })();
-    </script>
-  </body>
+      showConfirmation();
+    })();
+  </script>
+</body>
 </html>
