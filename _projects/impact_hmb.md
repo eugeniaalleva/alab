@@ -74,6 +74,7 @@ Participation will take about 1–3 months, depending on the timing of your next
 Email [impact-hmb-study@mssm.edu](mailto:impact-hmb-study@mssm.edu) for more information.
 
 **Contacts:**
+
 - **PI:** Eugenia Alleva, MD
 - **Email:** [impact-hmb-study@mssm.edu](mailto:impact-hmb-study@mssm.edu)
 - **Phone:** 646-387-3960
