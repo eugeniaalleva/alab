@@ -28,9 +28,9 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 ---
-## Welcome to the A-Lab
+## Welcome to A-Lab
 
-Welcome to the A-Lab, where we apply **advanced computational methods to neglected yet common gynecological conditions**.  
+Welcome to A-Lab, where we apply **advanced computational methods to neglected yet common gynecological conditions**.  
 Our mission is to make menstruation a recognized “fifth vital sign” and to translate AI/ML innovations into real clinical impact.  
 We combine clinical expertise, multimodal data science, and international collaboration to accelerate discovery and improve care for women’s health worldwide.
 
