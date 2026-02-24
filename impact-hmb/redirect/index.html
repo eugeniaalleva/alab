@@ -1,84 +1,104 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>IMPACT-HMB — Redirecting…</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: Arial, sans-serif;
-      background: #f0f2f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 24px;
-    }
-    .card {
-      background: #fff;
-      border-radius: 10px;
-      padding: 48px 40px;
-      max-width: 480px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.10);
-    }
-    .spinner {
-      width: 40px; height: 40px;
-      border: 4px solid #eee;
-      border-top-color: #C50076;
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      margin: 0 auto 24px;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    h1 { color: #333; font-size: 20px; margin-bottom: 12px; }
-    p  { color: #666; font-size: 15px; line-height: 1.5; }
-    a  { color: #C50076; }
-    #fallback { display: none; margin-top: 20px; }
-  </style>
-</head>
-<body>
-  <div class="card">
-    <div class="spinner"></div>
-    <h1>Recording your response…</h1>
-    <p>You will be redirected momentarily.</p>
-    <div id="fallback">
-      <p>If you are not redirected automatically,
-        <a id="fallback-link" href="#">click here</a>.</p>
-    </div>
-  </div>
-
-  <script>
-    (function () {
-      var params = new URLSearchParams(window.location.search);
-      var target = params.get("target");
-      var token  = params.get("token");
-      var action = params.get("action");
-      var type   = params.get("type") || "engagement";
-
-      if (!target || !token || !action) {
-        document.querySelector("h1").textContent = "Invalid link";
-        document.querySelector("p").textContent =
-          "This link appears to be broken. Please use the link from your email.";
-        document.querySelector(".spinner").style.display = "none";
-        return;
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IMPACT-HMB — Redirecting…</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
       }
+      body {
+        font-family: Arial, sans-serif;
+        background: #f0f2f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 24px;
+      }
+      .card {
+        background: #fff;
+        border-radius: 10px;
+        padding: 48px 40px;
+        max-width: 480px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid #eee;
+        border-top-color: #c50076;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        margin: 0 auto 24px;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      h1 {
+        color: #333;
+        font-size: 20px;
+        margin-bottom: 12px;
+      }
+      p {
+        color: #666;
+        font-size: 15px;
+        line-height: 1.5;
+      }
+      a {
+        color: #c50076;
+      }
+      #fallback {
+        display: none;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="spinner"></div>
+      <h1>Recording your response…</h1>
+      <p>You will be redirected momentarily.</p>
+      <div id="fallback">
+        <p>If you are not redirected automatically, <a id="fallback-link" href="#">click here</a>.</p>
+      </div>
+    </div>
 
-      var dest = target + "?token=" + encodeURIComponent(token)
-               + "&action=" + encodeURIComponent(action)
-               + "&type=" + encodeURIComponent(type);
+    <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var target = params.get("target");
+        var token = params.get("token");
+        var action = params.get("action");
+        var type = params.get("type") || "engagement";
 
-      // Show fallback link after 3 seconds in case redirect is blocked
-      var fb = document.getElementById("fallback");
-      var fbLink = document.getElementById("fallback-link");
-      fbLink.href = dest;
-      setTimeout(function () { fb.style.display = "block"; }, 3000);
+        if (!target || !token || !action) {
+          document.querySelector("h1").textContent = "Invalid link";
+          document.querySelector("p").textContent = "This link appears to be broken. Please use the link from your email.";
+          document.querySelector(".spinner").style.display = "none";
+          return;
+        }
 
-      // Redirect
-      window.location.href = dest;
-    })();
-  </script>
-</body>
+        var dest = target + "?token=" + encodeURIComponent(token) + "&action=" + encodeURIComponent(action) + "&type=" + encodeURIComponent(type);
+
+        // Show fallback link after 3 seconds in case redirect is blocked
+        var fb = document.getElementById("fallback");
+        var fbLink = document.getElementById("fallback-link");
+        fbLink.href = dest;
+        setTimeout(function () {
+          fb.style.display = "block";
+        }, 3000);
+
+        // Redirect
+        window.location.href = dest;
+      })();
+    </script>
+  </body>
 </html>
